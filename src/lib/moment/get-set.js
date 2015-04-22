@@ -1,5 +1,6 @@
 import { normalizeUnits } from '../units/aliases';
 import { hooks } from '../utils/hooks';
+import { format } from '../format/format';
 
 export function makeGetSet (unit, keepTime) {
     return function (value) {
@@ -29,6 +30,11 @@ export function getSet (units, value) {
         for (unit in units) {
             this.set(unit, units[unit]);
         }
+    else if (typeof units === 'string' &&
+             typeof value === 'string') {
+        var parsedUnits = {};
+        
+        this.set(parsedUnits);
     } else {
         units = normalizeUnits(units);
         if (typeof this[units] === 'function') {

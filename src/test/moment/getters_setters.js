@@ -236,3 +236,8 @@ test('day setter', function (assert) {
     assert.equal(moment(a).day(20).date(), 29, 'set from wednesday to second next saturday');
     assert.equal(moment(a).day(17).date(), 26, 'set from wednesday to second next wednesday');
 });
+
+test('formatted setter', function (assert) {
+    var day = moment([1995, 10, 28]);
+    assert.equal(day.set('10:30', 'HH:mm').date(), );
+});
